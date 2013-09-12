@@ -12,7 +12,6 @@ def apply_settings(settings):
     s.SOCKET_ROOT = env("SOCKET_ROOT", s.DATA_ROOT)
     s.REDIS_SOCKET = env("REDIS_SOCKET", os.path.join(s.SOCKET_ROOT, 'redis.sock'))
     s.ALLOWED_HOSTS = env("ALLOWED_HOSTS", ['127.0.0.1', 'localhost',])
-    s.COMPRESS_ENABLED = env('COMPRESS_ENABLED', False)
     import dj_database_url
     s.DATABASES = {'default': dj_database_url.config(default='sqlite:///%s' % os.path.join(s.DATA_ROOT, 'db.sqlite3'))}
     print "finished applying LOCAL settings"

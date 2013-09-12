@@ -14,7 +14,6 @@ def apply_settings(settings):
     settings.SOCKET_ROOT = '/home/%(username)s/tmp/' % server_cfg
     settings.REDIS_SOCKET = '/home/%(username)s/tmp/%(username)s_%(site)s_redis.sock' % server_cfg
     settings.ALLOWED_HOSTS = env("ALLOWED_HOSTS", ['%(username)s.divio.ch' % server_cfg])
-    settings.COMPRESS_ENABLED = env('COMPRESS_ENABLED', True)
     import dj_database_url
     settings.DATABASES = {'default': dj_database_url.config(default='postgres://%(username)s@/%(username)s' % server_cfg)}
     print "configured settings for nine"
