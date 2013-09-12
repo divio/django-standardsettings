@@ -9,7 +9,7 @@ def apply_pre_environment_settings(settings):
     print "APPLYING default settings"
     s.DEBUG = env('DEBUG', False)
     s.TEMPLATE_DEBUG = env('TEMPLATE_DEBUG', s.DEBUG)
-    s.SRC_ROOT = env('SRC_ROOT', os.path.dirname(__file__))
+    s.SRC_ROOT = env('SRC_ROOT', os.path.dirname(s.__file__))
     s.PROJECT_ROOT = env('PROJECT_ROOT', os.path.abspath(os.path.join(s.SRC_ROOT, '..')))
     s.SECRET_KEY = env('SECRET_KEY')
     if not s.SECRET_KEY:
