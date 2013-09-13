@@ -10,7 +10,7 @@ with open('LICENSE') as f:
 
 setup(
     name='django-standardsettings',
-    version='0.0.1',
+    version=__import__('standardsettings').__version__,
     description='standardised dotenv based settings for common deployments',
     long_description=readme,
     author='Stefan Foulis',
