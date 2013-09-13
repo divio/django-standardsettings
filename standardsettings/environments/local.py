@@ -4,7 +4,6 @@ import os
 
 def apply_settings(settings):
     s = settings
-    print "APPLYING LOCAL settings"
     s.DATA_ROOT = os.path.abspath(env("DATA_ROOT", os.path.join(s.PROJECT_ROOT, 'tmp')))
     s.MEDIA_ROOT = env("MEDIA_ROOT", os.path.join(s.DATA_ROOT, 'media'))
     s.STATIC_ROOT = env("STATIC_ROOT", os.path.join(s.DATA_ROOT, 'static_collected'))
@@ -14,4 +13,3 @@ def apply_settings(settings):
     s.ALLOWED_HOSTS = env("ALLOWED_HOSTS", ['127.0.0.1', 'localhost',])
     import dj_database_url
     s.DATABASES = {'default': dj_database_url.config(default='sqlite:///%s' % os.path.join(s.DATA_ROOT, 'db.sqlite3'))}
-    print "finished applying LOCAL settings"

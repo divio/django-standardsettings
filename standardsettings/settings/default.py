@@ -6,7 +6,6 @@ import os
 
 def apply_pre_environment_settings(settings):
     s = settings
-    print "APPLYING default settings"
     s.DEBUG = env('DEBUG', False)
     s.TEMPLATE_DEBUG = env('TEMPLATE_DEBUG', s.DEBUG)
     s.SRC_ROOT = env('SRC_ROOT', os.path.dirname(s.__file__))
@@ -25,7 +24,6 @@ def apply_pre_environment_settings(settings):
 
 def apply_post_environment_settings(settings):
     s = settings
-    print "APPLYING default settings"
     # make sure all directories exist
     for path in (s.DATA_ROOT, s.MEDIA_ROOT, s.LOG_ROOT, s.SOCKET_ROOT):
         try:
@@ -161,6 +159,7 @@ def configure_logging(settings):
     """
     configure_sentry should run before this!
     """
+    # TODO: error logging to sentry
     s = settings
     s.LOGGING = {
         'version': 1,

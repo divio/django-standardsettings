@@ -3,7 +3,6 @@ from getenv import env
 import os
 
 def apply_settings(settings):
-    print "APPLYING divio nine cloud settings"
     username = env('USER')  # this is the unix username
     stage = username.split('-')[1]
     server_cfg = {'username': username, 'site': os.environ.get('DEPLOYMENT_SITE', 'main')}
@@ -16,4 +15,3 @@ def apply_settings(settings):
     settings.ALLOWED_HOSTS = env("ALLOWED_HOSTS", ['%(username)s.divio.ch' % server_cfg])
     import dj_database_url
     settings.DATABASES = {'default': dj_database_url.config(default='postgres://%(username)s@/%(username)s' % server_cfg)}
-    print "configured settings for nine"
