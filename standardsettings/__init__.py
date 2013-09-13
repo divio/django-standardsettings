@@ -1,4 +1,4 @@
-__version__ = '0.0.2a2'
+__version__ = '0.0.2a3'
 
 
 def apply_settings(setting_module_name):
