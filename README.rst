@@ -5,6 +5,8 @@ Django Standardsettings
 Django standardsettings encapsulates using dotenv and getenv to produce a "standard"
 (opinionated) set of settings for the basic configuration needed in most projects.
 
+In ``settings.py`` add ``import standardsettings; standardsettings.apply_settings(__name__)``
+
 It defines what things should be exposed to be configurable (e.g ``DEBUG=True``)
 over environment variables and simplifies them (e.g setting
 ``ENABLE_DEBUG_TOOLBAR=True`` will add it to ``INSTALLED_APPS`` and to ``MIDDDLEWARES``).
